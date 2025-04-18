@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">InternAndroid</string>
+    <string name="title_activity_compose3">ComposeActivity3</string>
 </resources>

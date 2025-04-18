@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "179668149341",
+    "project_id": "internandroid-2f7b8",
+    "storage_bucket": "internandroid-2f7b8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179668149341:android:dd2a4bab4c72bd2f0c99b4",
+        "android_client_info": {
+          "package_name": "com.example.internandroid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtTMbBKxJh2I7Ge6fTOUdO9kjL_33d7qQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

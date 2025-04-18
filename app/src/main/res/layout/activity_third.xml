@@ -13,34 +13,67 @@
         android:layout_weight="0.2" />
 
     <TextView
-        android:id="@+id/sample_text"
+        android:id="@+id/input_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Third Activity"
         android:textSize="20sp"
         android:layout_gravity="center_horizontal" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.7" />
+        android:layout_weight="0.2" />
 
-    <Button
-        android:id="@+id/supabutton"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go Main Activity"
-        android:layout_gravity="center"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawablePadding="4dp"
-        android:text="Go Second Activity"
-        android:layout_gravity="center"/>
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/edit_input"
+            android:layout_width="295dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
+        <Button
+            android:id="@+id/btnInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="input" />
+    </LinearLayout>
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
-    </LinearLayout>
+        android:layout_weight="0.2" />
+
+    <Button
+        android:id="@+id/btnMainActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go MainActivity"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btnComposeActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go ComposeActivity"
+        android:layout_gravity="center_horizontal"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5" />
+
+    <TextView
+        android:id="@+id/page_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"/>
+</LinearLayout>
