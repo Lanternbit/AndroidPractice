@@ -29,5 +29,7 @@ extern "C"
 JNIEXPORT jint JNICALL
 Java_com_example_internandroid_ComposeActivity2Kt_printValueLength(JNIEnv *env, jclass clazz,
                                                                    jstring param) {
-    return env->GetStringUTFLength(param);
+    int len = env->GetStringUTFLength(param);
+    len = 999;
+    return len;
 }
