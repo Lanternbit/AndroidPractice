@@ -32,7 +32,7 @@ class ComposeActivity2 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
+        System.loadLibrary("internandroid")
         var It = intent.getStringExtra("InputText")
 
         setContent {
@@ -50,21 +50,19 @@ class ComposeActivity2 : ComponentActivity() {
         }
     }
 
-    external fun stringFromJNI(): String
 
-    companion object {
-        init {
-            System.loadLibrary("internandroid")
-        }
-    }
+
+//    companion object {
+//        init {
+//            System.loadLibrary("native-lib")
+//        }
+//    }
 }
 
 @Composable
 fun StopActivityButton2 (onBackPressedDispatcher: OnBackPressedDispatcher, It: String?) {
     Column (
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier.fillMaxSize()
+        horizontalAlignment = Alignment.CenterHorizontally
     ){
         Text(text = It.toString())
         Button(onClick = { onBackPressedDispatcher.onBackPressed() }) {
@@ -75,39 +73,28 @@ fun StopActivityButton2 (onBackPressedDispatcher: OnBackPressedDispatcher, It: S
 
 @Composable
 fun CompareValue2(applicationContext: Context) {
-    var value1 by remember { mutableStateOf(TextFieldValue()) }
-    var value2 by remember { mutableStateOf(TextFieldValue()) }
+    var value by remember { mutableStateOf(TextFieldValue()) }
 
     Column (
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        Row (
-            verticalAlignment = Alignment.CenterVertically
-        ){
-            TextField(
-                value = value1,
-                onValueChange = { value1 = it },
-                label = { Text(text = "Value1") },
-                singleLine = true,
-                modifier = Modifier.width(width = 100.dp)
-            )
-            TextField(
-                value = value2,
-                onValueChange = { value2 = it },
-                label = { Text(text = "Value2") },
-                singleLine = true,
-                modifier = Modifier.width(width = 100.dp)
-            )
-        }
+        TextField(
+            value = value,
+            onValueChange = { value = it },
+            label = { Text(text = "Value") },
+            singleLine = true,
+            modifier = Modifier.width(width = 200.dp)
+        )
         Button(onClick = {
-            var cv = CV()
-            var result = cv.compare(value1.text, value2.text)
-            Toast.makeText(applicationContext, result.toString() + "", Toast.LENGTH_SHORT).show()
+            var length = printValueLength(value.text)
+            Toast.makeText(applicationContext, length.toString(), Toast.LENGTH_SHORT).show();
         }) {
-            Text(text = "Compare Values")
+            Text(text = "Value Length")
         }
     }
 }
+
+external fun printValueLength(param: String): Int
 
 @Preview(
     showBackground = true
@@ -122,8 +109,8 @@ fun DefalutPreview2() {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.SpaceEvenly
             ){
-                StopActivityButton(onBackPressedDispatcher = OnBackPressedDispatcher(), "It")
-//                CompareValue()
+                StopActivityButton2(onBackPressedDispatcher = OnBackPressedDispatcher(), "It")
+//                CompareValue2()
             }
         }
     }
