@@ -24,3 +24,8 @@ jobject /* this */) {
 std::string hello = "Third Activity!";
 return env->NewStringUTF(hello.c_str());
 }
+
+extern "C" JNIEXPORT jstring JNICALL
+Java_com_example_internandroid_ComposeActivity2_stringFromJNI(JNIEnv *env, jobject thiz) {
+    // TODO: implement stringFromJNI()
+}

@@ -2,7 +2,6 @@ package com.example.internandroid
 
 import android.content.Context
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedDispatcher
@@ -10,7 +9,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.width
@@ -67,7 +65,6 @@ fun StopActivityButton (onBackPressedDispatcher: OnBackPressedDispatcher, It: St
 
 @Composable
 fun CompareValue(applicationContext: Context) {
-    var result: Boolean = false
     var value1 by remember { mutableStateOf(TextFieldValue()) }
     var value2 by remember { mutableStateOf(TextFieldValue()) }
 
@@ -93,11 +90,9 @@ fun CompareValue(applicationContext: Context) {
             )
         }
         Button(onClick = {
-            var result = false
-            if (value1 == value2) result = true
-            else result = false
-
-            Toast.makeText(applicationContext, result.toString(), Toast.LENGTH_SHORT).show()
+            var cv = CV()
+            var result = cv.compare(value1.text, value2.text)
+            Toast.makeText(applicationContext, result.toString() + "", Toast.LENGTH_SHORT).show()
         }) {
             Text(text = "Compare Values")
         }
