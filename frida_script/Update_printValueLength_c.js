@@ -7,6 +7,5 @@ Interceptor.attach(Module.findExportByName(ModuleName, MethodName), {
         console.log(args[0]);
     },
     onLeave: function (retval) {
-        // console
     }
 });
