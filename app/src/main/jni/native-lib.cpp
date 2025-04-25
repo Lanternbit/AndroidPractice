@@ -2,6 +2,11 @@
 #include <string>
 #include <cstring>
 
+extern "C"
+int a(int b) {
+    return b;
+}
+
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_example_internandroid_MainActivity_stringFromJNI(
         JNIEnv* env,
@@ -25,11 +30,12 @@ jobject /* this */) {
 std::string hello = "Third Activity!";
 return env->NewStringUTF(hello.c_str());
 }
+
 extern "C"
 JNIEXPORT jint JNICALL
 Java_com_example_internandroid_ComposeActivity2Kt_printValueLength(JNIEnv *env, jclass clazz,
                                                                    jstring param) {
     int len = env->GetStringUTFLength(param);
     len = 999;
-    return len;
+    return a(999);
 }
